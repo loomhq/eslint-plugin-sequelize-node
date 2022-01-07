@@ -1,0 +1,39 @@
+{
+  "name": "eslint-plugin-sequelize-node",
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "pretty": "yarn prettier --write .",
+    "test:watch": "jest --watchAll"
+  },
+  "version": "0.3.0",
+  "main": "./lib/index.js",
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "jest": "^27.4.5",
+    "prettier": "^2.5.1"
+  },
+  "description": "Custom linting rules for Sequelize NodeJS",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loomhq/eslint-plugin-sequelize-node.git"
+  },
+  "keywords": [
+    "eslint",
+    "sequelize"
+  ],
+  "author": "LoomHQ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loomhq/eslint-plugin-sequelize-node/issues"
+  },
+  "homepage": "https://github.com/loomhq/eslint-plugin-sequelize-node#readme",
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}

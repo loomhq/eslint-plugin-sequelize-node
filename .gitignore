@@ -1,0 +1,4 @@
+node_modules
+
+# Intellij IDE
+.idea

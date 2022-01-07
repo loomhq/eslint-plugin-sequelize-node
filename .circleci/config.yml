@@ -1,0 +1,46 @@
+orbs:
+  node: circleci/node@5.0.0
+
+version: 2.1
+
+workflows:
+  test:
+    jobs:
+      - test-unit:
+          filters:
+            tags:
+              only: /^v.*/
+      - publish:
+          requires:
+            - test-unit
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+jobs:
+  test-unit:
+    executor:
+      name: node/default
+      tag: '14.17.0'
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          command: yarn test
+          name: Tests
+  publish:
+    executor:
+      name: node/default
+      tag: '14.17.0'
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Publish package
+          command: |
+            set -ex
+            npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+            npm publish
