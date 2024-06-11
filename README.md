@@ -98,7 +98,7 @@ queryInterface.createTable('Table', { Column: { type: Sequelize.JSONB } });
 
 // Valid usage
 queryInterface.addColumn('Table', 'Column', { type: Sequelize.INTEGER });
-queryInterface.changeColumn('Table', 'Column', { type: Sequelize.TEXT });
+queryInterface.changeColumn('Table', 'Column', { type: Sequelize.BOOLEAN });
 queryInterface.createTable('Table', { Column1: { type: Sequelize.DATE }, Column2: { type: Sequelize.INTEGER } });
 
 
