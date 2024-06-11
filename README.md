@@ -97,9 +97,9 @@ queryInterface.changeColumn('Table', 'Column', { type: Sequelize.JSONB });
 queryInterface.createTable('Table', { Column: { type: Sequelize.JSONB } });
 
 // Valid usage
-queryInterface.addColumn('Table', 'Column', { type: Sequelize.STRING });
+queryInterface.addColumn('Table', 'Column', { type: Sequelize.INTEGER });
 queryInterface.changeColumn('Table', 'Column', { type: Sequelize.TEXT });
-queryInterface.createTable('Table', { Column1: { type: Sequelize.STRING }, Column2: { type: Sequelize.INTEGER } });
+queryInterface.createTable('Table', { Column1: { type: Sequelize.DATE }, Column2: { type: Sequelize.INTEGER } });
 
 
 ## Local development

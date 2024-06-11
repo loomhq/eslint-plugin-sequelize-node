@@ -8,7 +8,7 @@ const ruleTester = new RuleTester();
 ruleTester.run('no-jsonb-column', rule.testFn, {
   valid: [
     {
-      code: `queryInterface.addColumn('Table', 'Column', { type: Sequelize.STRING })`,
+      code: `queryInterface.addColumn('Table', 'Column', { type: Sequelize.DATE })`,
       options: [],
     },
     {
@@ -16,11 +16,11 @@ ruleTester.run('no-jsonb-column', rule.testFn, {
       options: [],
     },
     {
-      code: `queryInterface.changeColumn('Table', 'Column', { type: Sequelize.TEXT })`,
+      code: `queryInterface.changeColumn('Table', 'Column', { type: Sequelize.UUID })`,
       options: [],
     },
     {
-      code: `queryInterface.createTable('Table', { Column1: { type: Sequelize.STRING }, Column2: { type: Sequelize.INTEGER } })`,
+      code: `queryInterface.createTable('Table', { Column1: { type: Sequelize.INTEGER }, Column2: { type: Sequelize.INTEGER } })`,
       options: [],
     },
   ],
