@@ -83,7 +83,26 @@ ALTER TABLE "users" ADD FOREIGN KEY ("level_id") REFERENCES "level" ("id") NOT V
 
 ```
 
-## Working with locally
+### no-jsonb-column
+
+Adding new JSONB columns can lead to performance issues on the Database.
+
+If you need to store JSON data, consider other storage options or review your schema design to avoid using JSONB columns.
+
+Example:
+```javascript
+// Invalid usage
+queryInterface.addColumn('Table', 'Column', { type: Sequelize.JSONB });
+queryInterface.changeColumn('Table', 'Column', { type: Sequelize.JSONB });
+queryInterface.createTable('Table', { Column: { type: Sequelize.JSONB } });
+
+// Valid usage
+queryInterface.addColumn('Table', 'Column', { type: Sequelize.INTEGER });
+queryInterface.changeColumn('Table', 'Column', { type: Sequelize.BOOLEAN });
+queryInterface.createTable('Table', { Column1: { type: Sequelize.DATE }, Column2: { type: Sequelize.INTEGER } });
+
+
+## Local development
 
 **Tests**
 
